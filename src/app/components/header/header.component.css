@@ -1,0 +1,42 @@
+/* header.component.css */
+
+/* Custom Styling for the Navbar */
+.navbar {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+/* Navbar Brand */
+.navbar-brand {
+  font-size: 1.5rem; /* Increase font size */
+  font-weight: bold; /* Make text bold */
+}
+
+/* Navbar Links */
+.nav-link {
+  padding: 0.5rem 1rem; /* Add padding */
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light hover effect */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Adjust Navbar Collapse for Smaller Screens */
+.navbar-toggler {
+  border: none; /* Remove border */
+}
+/* Custom Styling for the Dropdown Links */
+.dropdown-menu {
+  background-color: #f8f9fa; /* Light background color for the dropdown menu */
+}
+
+.dropdown-item {
+  padding: 10px 20px; /* Padding for dropdown items */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Hover Effect for Dropdown Items */
+.dropdown-item:hover {
+  background-color: #007bff; /* Change background on hover */
+  color: #ffffff; /* Change text color on hover */
+}

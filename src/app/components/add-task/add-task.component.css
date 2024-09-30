@@ -1,0 +1,38 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+
+.card {
+  border: none;
+  border-radius: 8px;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+input.form-control,
+select.form-select {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.card.shadow-sm {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

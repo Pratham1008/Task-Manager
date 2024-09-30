@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="card shadow-sm p-4">
+    <h3 class="text-center mb-4">Add New Task</h3>
+
+    <form [formGroup]="form" class="needs-validation" (submit)="addTask()">
+      <div class="mb-3">
+        <label for="task" class="form-label">Task Name</label>
+        <input type="text" id="task" class="form-control" formControlName="task" name="task" placeholder="Enter task name" required>
+        <div class="invalid-feedback">Task Name is required.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="priority" class="form-label">Priority</label>
+        <select id="priority" class="form-select" formControlName="priority"  name="priority" required>
+          <option value="" disabled>Select priority</option>
+          <option value="LOW">Low</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="HIGH">High</option>
+        </select>
+        <div class="invalid-feedback">Please select a priority.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="dueDate" class="form-label">Due Date</label>
+        <input type="date" id="dueDate" class="form-control" formControlName="dueDate" name="dueDate" required>
+        <div class="invalid-feedback">Due Date is required.</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="!form.valid">Add Task</button>
+    </form>
+  </div>
+</div>

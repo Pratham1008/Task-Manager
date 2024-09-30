@@ -1,0 +1,34 @@
+<h2 class="text-center my-4">Task List</h2>
+@if(loading){
+  <div class="spinner-container">
+    <p-progressSpinner [styleClass]="loading ? 'spinner-active' : 'spinner-hidden'"></p-progressSpinner>
+  </div>
+} @else {
+  <div class="container">
+      <table *ngIf="!loading" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th class="custom-table-header">Status</th>
+          <th class="custom-table-header">Task</th>
+          <th class="custom-table-header">Due Date</th>
+          <th class="custom-table-header">Priority</th>
+          <th class="custom-table-header">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let task of tasks">
+          <td><input type="checkbox" class="status-checkbox" [checked]="task.done" (change)="toggle(task.id)"></td>
+          <td>{{ task.task }}</td>
+          <td>{{ task.dueDate }}</td>
+          <td class="priority-{{task.priority}}">{{ task.priority }}</td>
+          <td>
+            <button class="btn btn-primary btn mx-2">Edit</button>
+            <button class="btn btn-danger btn mx-2" (click)="delete(task.id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+}
+
+
