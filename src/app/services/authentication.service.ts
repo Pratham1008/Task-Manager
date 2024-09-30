@@ -9,7 +9,7 @@ import {CookieService} from 'ngx-cookie-service';
 
 export class AuthenticationService {
 
-  private url : string = 'http://localhost:5000/api/auth';
+  private url : string = 'https://taskmanagerserver.up.railway.app/api/auth';
 
   private http = inject(HttpClient);
   private cookie = inject(CookieService);

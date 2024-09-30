@@ -9,7 +9,7 @@ import {AuthenticationService} from "./authentication.service";
 })
 export class TaskService {
 
-  private url : string = 'http://localhost:5000/api';
+  private url : string = 'https://taskmanagerserver.up.railway.app/api';
   private service = inject(AuthenticationService);
   private http = inject(HttpClient);
 
