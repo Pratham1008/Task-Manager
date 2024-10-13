@@ -6,7 +6,7 @@
           <h3>Login</h3>
         </div>
         <div class="card-body">
-          <form [formGroup]="form" (ngSubmit)="signIn()">
+          <form *ngIf="isLogin" [formGroup]="form" (ngSubmit)="signIn()">
             <!-- Username Field -->
             <div class="form-group">
               <label for="username">Username</label>
@@ -22,6 +22,41 @@
             <!-- Submit Button -->
             <div class="form-group text-center my-3">
               <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Login</button>
+            </div>
+
+            <div class="form-group text-center" style="cursor: pointer; color: #007bff">
+              <a (click)="isLogin = false">Create a Account</a>
+            </div>
+          </form>
+          <form *ngIf="!isLogin" [formGroup]="signUpForm" (submit)="signUp()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="role">Role</label>
+              <input type="text" class="form-control" id="role" formControlName="role" name="role" required>
+            </div>
+            <!-- Username Field -->
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" formControlName="email" name="username" required>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" formControlName="password" name="password" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group text-center my-3">
+              <button type="submit" class="btn btn-primary" [disabled]="!signUpForm.valid">Register</button>
+            </div>
+
+            <div class="form-group text-center" style="cursor: pointer; color: #007bff">
+              <a (click)="isLogin = true">Already have a account</a>
             </div>
           </form>
         </div>

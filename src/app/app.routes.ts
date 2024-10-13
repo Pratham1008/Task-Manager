@@ -20,7 +20,7 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path : 'task-manager/:taskId',
+    path : 'task-manager/:id',
     component: UpdateTaskComponent,
     canActivate: [authGuard]
   },

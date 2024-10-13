@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CookieService} from 'ngx-cookie-service';
+import Users from "./Users";
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,13 @@ import {CookieService} from 'ngx-cookie-service';
 
 export class AuthenticationService {
 
-  private url : string = 'https://taskmanagerserver.up.railway.app/api/auth';
+  private url : string = 'http://localhost:5000/api/auth';
 
   private http = inject(HttpClient);
   private cookie = inject(CookieService);
 
-  register(email : any, password : any) : Observable<any>{
-    return this.http.post<any>(`${this.url}/register`, {email, password}, {
+  register(user : Users) : Observable<Users>{
+    return this.http.post<Users>(`${this.url}/register`, {user}, {
       withCredentials: true,
     });
   }
@@ -26,7 +27,7 @@ export class AuthenticationService {
     });
   }
 
-  getUser(username : any): Observable<any> {
+  getUser(username : string): Observable<any> {
     return this.http.get(`${this.url}/user/${username}`, {withCredentials: true});
   }
 

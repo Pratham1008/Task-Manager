@@ -20,10 +20,12 @@ export class HeaderComponent {
 
   ngOnInit() {
     const email = localStorage.getItem('username');
-    this.auth.getUser(email).subscribe(data => {
-      localStorage.setItem('name', data.name);
-      this.name = localStorage.getItem('name');
-    })
+    if(email != null){
+      this.auth.getUser(email).subscribe(data => {
+        localStorage.setItem('name', data.name);
+        this.name = localStorage.getItem('name');
+      })
+    }
   }
 
   logout(){

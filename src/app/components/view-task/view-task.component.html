@@ -1,9 +1,16 @@
-<h2 class="text-center my-4">Task List</h2>
 @if(loading){
-  <div class="spinner-container">
-    <p-progressSpinner [styleClass]="loading ? 'spinner-active' : 'spinner-hidden'"></p-progressSpinner>
+  <div class="spinner-container"
+       style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+    <p-progressSpinner [style]="{'width': '120px', 'height': '120px'}" [styleClass]="loading ? 'spinner-active' : 'spinner-hidden'"></p-progressSpinner>
   </div>
-} @else {
+} @else if(!isData){
+  <div class="container"
+       style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+    <h1 class="text-danger text-center">No Tasks Found</h1>
+  </div>
+}
+@else {
+  <h2 class="text-center my-4">Task List</h2>
   <div class="container">
       <table *ngIf="!loading" class="table table-bordered table-hover">
         <thead>
@@ -22,7 +29,7 @@
           <td>{{ task.dueDate }}</td>
           <td class="priority-{{task.priority}}">{{ task.priority }}</td>
           <td>
-            <button class="btn btn-primary btn mx-2">Edit</button>
+            <button class="btn btn-primary btn mx-2" routerLink="/task-manager/{{task.id}}">Edit</button>
             <button class="btn btn-danger btn mx-2" (click)="delete(task.id)">Delete</button>
           </td>
         </tr>
