@@ -10,7 +10,7 @@ import Users from "./Users";
 
 export class AuthenticationService {
 
-  private url : string = 'http://localhost:5000/api/auth';
+  private url : string = 'https://taskmanagerserver-cxa9.onrender.com/api/auth';
 
   private http = inject(HttpClient);
   private cookie = inject(CookieService);
